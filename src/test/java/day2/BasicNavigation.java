@@ -58,7 +58,7 @@ driver.navigate().to("http://amazon.com");
         //driver.close() must be at the end
         driver.close();//we close the browser
 
-
+//hello hello
     }public static void verifyEquals(String arg1, String arg2){
 
         if (arg1.equals(arg2)){
