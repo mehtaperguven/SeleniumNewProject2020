@@ -20,6 +20,7 @@ public class BasicNavigation {
 
         driver.get("http://google.com");// we opened the browser
         driver.manage().window().maximize();//It maximizes the browser's page
+       // driver.manage().window().fullscreen();
         Thread.sleep(3000);//it waits for 3 seconds for Demo
         // we must add throws when we call sleep() from Thread
 
@@ -33,7 +34,9 @@ public class BasicNavigation {
         }else{
             System.out.println("TEST FAILED");
         }
-driver.navigate().to("http://amazon.com");
+
+
+        driver.navigate().to("http://amazon.com");
         Thread.sleep(3000);
 
         if (driver.getTitle().toLowerCase().contains("amazon")){
@@ -44,16 +47,21 @@ driver.navigate().to("http://amazon.com");
 
 
         driver.navigate().back();//comes back to google
-
+        Thread.sleep(3000);
         verifyEquals(driver.getTitle(),"Google");
 
-        driver.navigate().forward();//moves forward in the browser's history
+        driver.navigate().forward();
+        //moves forward in the browser's history again to amazon
+        Thread.sleep(3000);
+
         System.out.println("Get title "+driver.getTitle());
         System.out.println("Get URL "+driver.getCurrentUrl());
 
 
         driver.navigate().refresh();//to refresh, reload the page
         Thread.sleep(3000);
+
+        //driver.navigate().to("http://google.com")==driver.get();
 
         //driver.close() must be at the end
         driver.close();//we close the browser
