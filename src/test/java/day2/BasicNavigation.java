@@ -27,7 +27,7 @@ public class BasicNavigation {
         String title=driver.getTitle();
         String expectedTitle="Google";
         System.out.println("Title from the HTML file is "+ title);
-
+        System.out.println("Hello hello");
         if (expectedTitle.equals(title)){
             System.out.println("TEST PASSED");
         }else{
