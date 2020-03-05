@@ -13,7 +13,7 @@ public class VerifyThatElementIsGOne {
     public static void main(String[] args) throws Exception {
         //Interview Question
         //How to check that element does not exist any more
-        //it means element is gone element will disappeare it will clean from the HTML as well
+        //it means element is gone element will disappear, it will be cleaned from the HTML as well
 
         WebDriverManager.chromedriver().version("79").setup();
         WebDriver driver= new ChromeDriver();
