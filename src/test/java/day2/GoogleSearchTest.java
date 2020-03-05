@@ -27,7 +27,6 @@ Thread.sleep(2000);
         news.click();//It clicks to News element ,module on the website
        Thread.sleep(4000);
 
-
         driver.quit();
     }
 }

@@ -30,7 +30,7 @@ public class JumpToTheNewWindow {
         System.out.println("Before switching window ids "+driver.getCurrentUrl()+">>>>>"+driver.getWindowHandle());
         for (String windowId:windowHandlesIds){
 
-            if (!windowId.equals(windowHandle)){
+            if (!windowId.equals(windowHandle)){//windowHandle==Google
                 driver.switchTo().window(windowId);
             }
         }
