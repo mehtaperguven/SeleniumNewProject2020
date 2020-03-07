@@ -30,13 +30,19 @@ public class RadioButtons {
 
            // <input type="radio" id="blue" name="color" checked="">
             String id=radioButton.getAttribute("id");//id is unique getAttribute("id") brings blue
-            if (radioButton.isEnabled()) {
+            //returns true if button already is clicked
+           boolean isSelected=radioButton.isSelected();
+            System.out.println(id+" is selected ? "+isSelected);
+
+            if (radioButton.isEnabled()) {//retirns true if button can be clicked,otherwise returns false
                 radioButton.click();
                 System.out.println("Clicked on:: "+id);
                 BrowserUtilities.wait(1);
             }else{
                 System.out.println("Button is disabled, not clicked :: "+id);
+
             }
+            System.out.println();
         }
 
 
