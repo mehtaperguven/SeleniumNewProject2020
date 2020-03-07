@@ -1,10 +1,9 @@
-package day4;
+package com.automation.tests.day4;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import utilities.DriverFactory;
 
 public class WarmUp {

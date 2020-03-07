@@ -1,6 +1,5 @@
-package day4;
+package com.automation.tests.day4;
 
-import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -37,10 +36,10 @@ public class FindElementsTest {
 
         }
         //Interview Question
-//StaleElementReferenceException: Means that selenium can not find previously located element
+        //StaleElementReferenceException: Means that selenium can not find previously located element
         //we should find element again
- //We need to refresh our collections each time to solve this problem       driver.quit();
-//you lost the ball you can not use it first you should find it
+        //We need to refresh our collections each time to solve this problem       driver.quit();
+        //you lost the ball you can not use it first you should find it
 
     for (int i=1; i<links.size();i++){
         links.get(i).click();//click to link
@@ -50,7 +49,7 @@ public class FindElementsTest {
 
         links=driver.findElements(By.tagName("a"));//refresh all list of links again
         //we lost the link in each implementation we should find all links again
-        //if we do not use ???
+        //if we do not refresh we will be able to open
 
     }
 

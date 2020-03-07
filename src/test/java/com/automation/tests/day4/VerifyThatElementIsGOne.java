@@ -1,4 +1,4 @@
-package day4;
+package com.automation.tests.day4;
 
 
 import io.github.bonigarcia.wdm.WebDriverManager;
