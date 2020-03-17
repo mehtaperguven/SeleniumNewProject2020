@@ -11,9 +11,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import utilities.BrowserUtilities;
-
-import javax.swing.*;
+import utilities.BrowserUtil;
 
 public class VehicleTestSameDifferentWay {
 
@@ -34,17 +32,17 @@ public class VehicleTestSameDifferentWay {
         driver.findElement(usernameBy).sendKeys(username);
         driver.findElement(passwordBy).sendKeys(password, Keys.ENTER);
         //put more wait here as well, if didn't click
-        BrowserUtilities.wait(5);
+        BrowserUtil.wait(5);
         //click on fleet
         //driver.findElement(fleetBy).click();
         Actions actions=new Actions(driver);
         actions.moveToElement(driver.findElement(fleetBy)).perform();
-        BrowserUtilities.wait(2);
+        BrowserUtil.wait(2);
         //click on Vehicles
         driver.findElement(By.linkText("Vehicles")).click();
         //put more wait time if you are getting Cars, Dashboard...
         //this application is slooooow...
-        BrowserUtilities.wait(5);
+        BrowserUtil.wait(5);
         //find subtitle element
         WebElement subTitleElement = driver.findElement(subtitleBy);
         System.out.println(subTitleElement.getText());

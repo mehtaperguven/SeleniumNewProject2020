@@ -57,7 +57,7 @@ public class BasicTestNGTests {
             System.out.println("TEST 2");
             int num1 = 5;
             int num2 = 10;
-            //it calls hard assertion.
+            //it calls hard assertion.//while Assert.assertTrue(num1>num2)???
             //if assertion fails - it stops the execution (due to exception).
             Assert.assertTrue(num1 < num2);
         }

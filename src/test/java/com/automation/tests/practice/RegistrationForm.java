@@ -10,7 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import utilities.BrowserUtilities;
+import utilities.BrowserUtil;
 
 public class RegistrationForm {
 
@@ -55,7 +55,7 @@ driver.findElement(phoneBy).sendKeys("234-123-1231");
     jobTitleSelect.selectByVisibleText("SDET");
     driver.findElement(javaBy).click();
     driver.findElement(signUpBy).click();
-    BrowserUtilities.wait(5);
+    BrowserUtil.wait(5);
     String expected = "You've successfully completed registration!";
     String actual = driver.findElement(By.tagName("p")).getText();
 
@@ -73,14 +73,14 @@ public void verifyFirstNameLengthTest(){
 
 
     driver.findElement(firstNameBy).sendKeys("a");
-    BrowserUtilities.wait(3);
+    BrowserUtil.wait(3);
     WebElement warningMessage = driver.findElement(By.xpath("//small[text()='first name must be more than 2 and less than 64 characters long']"));
     Assert.assertTrue(warningMessage.isDisplayed());
 }
 @Test
 public void verifyAlphabeticLettersOnlyTest(){
 driver.findElement(firstNameBy).sendKeys("123");
-BrowserUtilities.wait(3);
+BrowserUtil.wait(3);
 WebElement warningMessage=driver.findElement(By.xpath("//small[text()='first name can only consist of alphabetical letters']"));
 Assert.assertTrue(warningMessage.isDisplayed());
 }

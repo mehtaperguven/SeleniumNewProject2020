@@ -3,7 +3,7 @@ package com.automation.tests.day5;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import utilities.BrowserUtilities;
+import utilities.BrowserUtil;
 import utilities.DriverFactory;
 
 public class RadioButtonsTest {
@@ -15,7 +15,7 @@ public class RadioButtonsTest {
         //sometimes if we do not maximize the window
         // some elements can be hidden for that reason we generally maximize window
         driver.manage().window().maximize();
-        BrowserUtilities.wait(2);
+        BrowserUtil.wait(2);
         //<input type="radio" id="black" name="color">//in HTML id is unique
         WebElement blackButton=driver.findElement(By.id("black"));//we want to find element by id "black"
 

@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import utilities.BrowserUtilities;
+import utilities.BrowserUtil;
 import utilities.DriverFactory;
 
 import java.util.List;
@@ -14,7 +14,7 @@ public class SelectByTextMultipleOptions {
 
         WebDriver driver= DriverFactory.createDriver("chrome");
         driver.get("http://practice.cybertekschool.com/dropdown");
-        BrowserUtilities.wait(2);
+        BrowserUtil.wait(2);
         Select languagesSelect=new Select(driver.findElement(By.name("Languages")));
 
         boolean isMultiple=languagesSelect.isMultiple();
@@ -24,7 +24,7 @@ public class SelectByTextMultipleOptions {
         languagesSelect.selectByVisibleText("JavaScript");
         languagesSelect.selectByVisibleText("C#");
 
-        BrowserUtilities.wait(3);
+        BrowserUtil.wait(3);
 
 
         List<WebElement> selectedLanguages=languagesSelect.getAllSelectedOptions();
@@ -33,13 +33,13 @@ public class SelectByTextMultipleOptions {
             System.out.println(selectedLanguage.getText());
         }
 
-        BrowserUtilities.wait(2);
+        BrowserUtil.wait(2);
 
         languagesSelect.deselectByVisibleText("Java");
-        BrowserUtilities.wait(3);
+        BrowserUtil.wait(3);
         languagesSelect.deselectAll();
 
-        BrowserUtilities.wait(3);
+        BrowserUtil.wait(3);
 
         driver.quit();
     }

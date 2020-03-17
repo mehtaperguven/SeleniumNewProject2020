@@ -10,7 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import utilities.BrowserUtilities;
+import utilities.BrowserUtil;
 
 import java.util.List;
 
@@ -21,9 +21,9 @@ public class SearchTests {
     @Test
     public void googleSearchTest(){
         driver.get("http://google.com");
-        BrowserUtilities.wait(3);
+        BrowserUtil.wait(3);
         driver.findElement(By.name("q")).sendKeys("java", Keys.ENTER);
-        BrowserUtilities.wait(5);
+        BrowserUtil.wait(5);
         //since every search item has a tag name <h3>
         //it's the easiest way to collect all of them
         List<WebElement> searchItems = driver.findElements(By.tagName("h3"));
@@ -33,7 +33,7 @@ public class SearchTests {
             if(!var.isEmpty()){
                 System.out.println(var);
                 //verify that every search result contains java
-                //is some of the search results
+                //if some of the search results
                 //doesn't contain java word, it will fail the test
                 Assert.assertTrue(var.toLowerCase().contains("java"));
                 System.out.println(var.toLowerCase());
@@ -56,10 +56,10 @@ public class SearchTests {
         //so we need to maximize window before clicking on it
         driver.manage().window().maximize();
 
-        BrowserUtilities.wait(5);
+        BrowserUtil.wait(5);
 
         driver.findElement(By.id("twotabsearchtextbox")).sendKeys("Java", Keys.ENTER);
-        BrowserUtilities.wait(5);
+        BrowserUtil.wait(5);
         //find all links inside h2 elements, because h2 element is no clickable itself
         //hyperlinks must be clickable
         List<WebElement> searchItems = driver.findElements(By.xpath("//h2//a"));
@@ -69,7 +69,7 @@ public class SearchTests {
             System.out.println("Title: "+searchItem.getText());
         }
         searchItems.get(0).click();
-        BrowserUtilities.wait(5);
+        BrowserUtil.wait(5);
 
         WebElement productTitle = driver.findElement(By.id("title"));
         String productTitleString = productTitle.getText();

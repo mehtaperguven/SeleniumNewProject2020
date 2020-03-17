@@ -11,7 +11,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import utilities.BrowserUtilities;
+import utilities.BrowserUtil;
 
 import java.util.List;
 
@@ -41,12 +41,13 @@ public class PracticeTests {
         //go to "Form Authentication" page
         driver.findElement(By.linkText("Form Authentication")).click();
 
-        BrowserUtilities.wait(5);
-
+        BrowserUtil.wait(5);
+        //driver.findElement(By.xpath("//label[text()='Username']/following-sibling::input"));
+        
         driver.findElement(By.name("username")).sendKeys("tomsmith");
         driver.findElement(By.name("password")).sendKeys("SuperSecretPassword", Keys.ENTER);
 
-        BrowserUtilities.wait(5);
+        BrowserUtil.wait(5);
 
         String expected = "Welcome to the Secure Area. When you are done click logout below.";
         String actual = driver.findElement(By.className("subheader")).getText();
@@ -66,10 +67,10 @@ public class PracticeTests {
     @Test
     public void forgotPasswordTest(){
         driver.findElement(By.linkText("Forgot Password")).click();
-        BrowserUtilities.wait(5);
+        BrowserUtil.wait(5);
 
         driver.findElement(By.name("email")).sendKeys("testemail@email.com", Keys.ENTER);
-        BrowserUtilities.wait(3);
+        BrowserUtil.wait(3);
 
         String actual = driver.findElement(By.name("confirmation_message")).getText();
         String expected = "Your e-mail's been sent!";
@@ -85,7 +86,7 @@ public class PracticeTests {
         //ChromeOptions - use to customize browser for tests
         ChromeOptions chromeOptions = new ChromeOptions();
         //to ignore "Your connection is not private issue"
-        chromeOptions.setAcceptInsecureCerts(true);
+        chromeOptions.setAcceptInsecureCerts(true);//cert==sertifika veya bilgisayarda acil mudahale
         //provide chromeOptions object into chromedriver constructor
         driver = new ChromeDriver(chromeOptions);
         driver.get("http://practice.cybertekschool.com/");
@@ -108,13 +109,13 @@ public class PracticeTests {
         //  //input[@type="checkbox"][1]
         //collect all checkboxes
         List<WebElement> checkboxes = driver.findElements(By.tagName("input"));
-        BrowserUtilities.wait(4);
+        BrowserUtil.wait(4);
 
         checkboxes.get(0).click();//to click on 1st checkbox
 
         Assert.assertTrue(checkboxes.get(0).isSelected(), "Checkbox #1 is not selected!");
 
-       BrowserUtilities.wait(4);
+       BrowserUtil.wait(4);
 
     }
 
