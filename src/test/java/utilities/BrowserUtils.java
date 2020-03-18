@@ -1,6 +1,6 @@
 package utilities;
 
-public class BrowserUtil {
+public class BrowserUtils {
 
     public static void wait(int seconds){
 

@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import utilities.BrowserUtil;
+import utilities.BrowserUtils;
 
 public class CssSelector {
     public static void main(String[] args) {
@@ -29,18 +29,18 @@ public class CssSelector {
         WebElement btn6 = driver.findElement(By.cssSelector("#disappearing_button"));
 
         btn1.click();
-        BrowserUtil.wait(2);
+        BrowserUtils.wait(2);
         btn2.click();
-        BrowserUtil.wait(2);
+        BrowserUtils.wait(2);
         btn3.click();
-        BrowserUtil.wait(2);
+        BrowserUtils.wait(2);
         btn4.click();
-        BrowserUtil.wait(2);
+        BrowserUtils.wait(2);
         btn5.click();
-        BrowserUtil.wait(2);
+        BrowserUtils.wait(2);
         btn6.click();
 
-        BrowserUtil.wait(2);
+        BrowserUtils.wait(2);
         driver.quit();
     //helloo
     }

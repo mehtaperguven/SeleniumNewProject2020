@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import utilities.BrowserUtil;
+import utilities.BrowserUtils;
 import utilities.DriverFactory;
 
 import java.util.List;
@@ -14,7 +14,7 @@ public class SelectByText {
 
         WebDriver driver= DriverFactory.createDriver("chrome");
     driver.get("http://practice.cybertekschool.com/dropdown");
-        BrowserUtil.wait(4);
+        BrowserUtils.wait(4);
         //we generate WebElement object below:
         WebElement simpleDropdown=driver.findElement(By.id("dropdown"));
 
@@ -24,10 +24,10 @@ public class SelectByText {
 
         //we select by visible text
         selectSimpleDropdown.selectByVisibleText("Option 2");
-        BrowserUtil.wait(3);
+        BrowserUtils.wait(3);
 
         selectSimpleDropdown.selectByVisibleText("Option 1");
-        BrowserUtil.wait(3);
+        BrowserUtils.wait(3);
 
     Select selectYear=new Select(driver.findElement(By.id("year")));
     Select selectMonth=new Select(driver.findElement(By.id("month")));
@@ -37,21 +37,21 @@ public class SelectByText {
         selectMonth.selectByVisibleText("March");
         selectDay.selectByVisibleText("6");
 
-        BrowserUtil.wait(5);
+        BrowserUtils.wait(5);
 //select all months one by one
         //.getOptions(); >>returns all options from dropdown as List<WebElement>
         List<WebElement> months=selectMonth.getOptions();
         for (WebElement eachMonth:months){
             String monthName=eachMonth.getText();
             selectMonth.selectByVisibleText(monthName);
-            BrowserUtil.wait(2);
+            BrowserUtils.wait(2);
         }
-        BrowserUtil.wait(3);
+        BrowserUtils.wait(3);
 
 
         Select stateSelect=new Select(driver.findElement(By.id("state")));
         stateSelect.selectByVisibleText("Texas");
-        BrowserUtil.wait(3);
+        BrowserUtils.wait(3);
 
         String selected=stateSelect.getFirstSelectedOption().getText();
         if (selected.equals("Texas")){
@@ -61,7 +61,7 @@ public class SelectByText {
         }
 
 
-        BrowserUtil.wait(2);
+        BrowserUtils.wait(2);
 
 
 

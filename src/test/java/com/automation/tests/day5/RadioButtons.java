@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import utilities.BrowserUtil;
+import utilities.BrowserUtils;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ public class RadioButtons {
 
         driver.get("http://practice.cybertekschool.com/radio_buttons");
         driver.manage().window().maximize();
-        BrowserUtil.wait(3);
+        BrowserUtils.wait(3);
         //we generated wait method for Thread.sleep();
 
        // Thread.sleep(3000);
@@ -37,7 +37,7 @@ public class RadioButtons {
             if (radioButton.isEnabled()) {//retirns true if button can be clicked,otherwise returns false
                 radioButton.click();
                 System.out.println("Clicked on:: "+id);
-                BrowserUtil.wait(1);
+                BrowserUtils.wait(1);
             }else{
                 System.out.println("Button is disabled, not clicked :: "+id);
 

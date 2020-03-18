@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import utilities.BrowserUtil;
+import utilities.BrowserUtils;
 
 import static org.testng.Assert.*;
 
@@ -32,7 +32,7 @@ public class LoginPageTests {
    public void invalidUserName(){
        driver.findElement(usernameBy).sendKeys("invalidusername");
        driver.findElement(passwordBy).sendKeys("UserUser123", Keys.ENTER);
-       BrowserUtil.wait(3);
+       BrowserUtils.wait(3);
        WebElement warningElement=driver.findElement(warningMessageBy);
         assertTrue(warningElement.isDisplayed());
 

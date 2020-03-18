@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import utilities.BrowserUtil;
+import utilities.BrowserUtils;
 
 public class NestedFrame {
     public static void main(String[] args) {
@@ -14,7 +14,7 @@ public class NestedFrame {
         WebDriver driver=new ChromeDriver();
         driver.get("http://practice.cybertekschool.com/nested_frames");
 
-        BrowserUtil.wait(4);
+        BrowserUtils.wait(4);
         driver.switchTo().frame("frame-top");
         driver.switchTo().frame("frame-middle");
 

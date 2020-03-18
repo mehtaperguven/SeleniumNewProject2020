@@ -1,7 +1,7 @@
 package com.automation.tests.day7;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import utilities.BrowserUtil;
+import utilities.BrowserUtils;
 import utilities.DriverFactory;
 
 public class Xpath {
@@ -16,14 +16,14 @@ public class Xpath {
 
         WebDriver driver= DriverFactory.createDriver("chrome");
         driver.get("http://practice.cybertekschool.com/login");
-        BrowserUtil.wait(3);
+        BrowserUtils.wait(3);
 
         driver.findElement(By.xpath(userNameLocator)).sendKeys("tomsmith");
-        BrowserUtil.wait(1);
+        BrowserUtils.wait(1);
         driver.findElement(By.xpath(passwordLocator)).sendKeys("SuperSecretPassword");
-        BrowserUtil.wait(1);
+        BrowserUtils.wait(1);
         driver.findElement(By.xpath(loginBtnLocator)).click();// or //button[contains(text(),'Login')]
-        BrowserUtil.wait(3);
+        BrowserUtils.wait(3);
         driver.quit();
 
 

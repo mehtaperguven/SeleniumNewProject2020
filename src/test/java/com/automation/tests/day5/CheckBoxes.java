@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import utilities.BrowserUtil;
+import utilities.BrowserUtils;
 
 import java.util.List;
 
@@ -31,7 +31,7 @@ for (int i=0;i<checkBoxes.size();i++) {
     if (checkBoxes.get(i).isDisplayed()&&checkBoxes.get(i).isEnabled()&&(!checkBoxes.get(i).isSelected())) {
         checkBoxes.get(i).click();
         System.out.println("check box "+(i+1)+" is clicked");
-        BrowserUtil.wait(3);
+        BrowserUtils.wait(3);
     }else{
         System.out.println("check box "+(i+1)+" is not clicked because already was selected");
     }

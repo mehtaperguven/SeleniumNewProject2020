@@ -4,7 +4,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import utilities.BrowserUtil;
+import utilities.BrowserUtils;
 import utilities.DriverFactory;
 
 import java.util.List;
@@ -16,17 +16,17 @@ public class Alerts {
 
         WebDriver driver= DriverFactory.createDriver("chrome");
         driver.get("http://practice.cybertekschool.com/javascript_alerts");
-        BrowserUtil.wait(2);
+        BrowserUtils.wait(2);
 
         List<WebElement> buttons=driver.findElements(By.tagName("button"));
         buttons.get(0).click();
-        BrowserUtil.wait(3);
+        BrowserUtils.wait(3);
 
         String popupText=driver.switchTo().alert().getText();//we get text from pop up message
         System.out.println(popupText);
 
         driver.switchTo().alert().accept();//to click>>
-        BrowserUtil.wait(3);
+        BrowserUtils.wait(3);
         String expected="You successfully clicked an alert";
         String actual=driver.findElement(By.id("result")).getText();
         if (expected.equals(actual)){
@@ -41,7 +41,7 @@ public class Alerts {
 //##############################
         System.out.println("TEST NO2:");
         buttons.get(1).click();//we click on the second button
-        BrowserUtil.wait(3);
+        BrowserUtils.wait(3);
         driver.switchTo().alert().dismiss();//we click to cancel
 
         String expected2="You clicked: Cancel";
@@ -55,15 +55,15 @@ public class Alerts {
             System.out.println("Expected: "+expected2);
             System.out.println("Actual:  "+actual2);
         }
-        BrowserUtil.wait(3);
+        BrowserUtils.wait(3);
 //#############################################################
         System.out.println("TEST NO3");
         buttons.get(2).click();
-        BrowserUtil.wait(3);
+        BrowserUtils.wait(3);
         Alert alert= driver.switchTo().alert();//like different layer we switch into alert
         alert.sendKeys("Hello, World!");
 
-        BrowserUtil.wait(3);
+        BrowserUtils.wait(3);
 
         alert.accept();
 
@@ -76,7 +76,7 @@ public class Alerts {
             System.out.println("Expected: "+expected3);
             System.out.println("Actual:  "+actual3);
         }
-        BrowserUtil.wait(3);
+        BrowserUtils.wait(3);
 
 
         driver.quit();
