@@ -66,7 +66,10 @@ public class SearchTests {
 
         //click on the first item
         for(WebElement searchItem: searchItems){
+            String str=searchItem.getText();
+            if (str.contains("Java"))
             System.out.println("Title: "+searchItem.getText());
+            Assert.assertTrue(str.contains("Java"));
         }
         searchItems.get(0).click();
         BrowserUtils.wait(5);

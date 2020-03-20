@@ -17,22 +17,22 @@ public class RegistrationForm {
     private  String URL="http://practice.cybertekschool.com/registration_form";
     private WebDriver driver;
     //private String firstNameLocator="firstname";
-    private By firstNameBy=By.name("firstname");
+    private By firstNameBy=By.name("firstname");//....//div[@class='col-sm-5']//following-sibling::input[@name='firstname']:))
     //private String lastNameLocator="lastname";
-    private By lastNameBy=By.name("lastname");
+    private By lastNameBy=By.name("lastname");//.....By.xpath//input[@name='lastname']
     private By userNameBy=By.name("username");
     private By emailBy=By.name("email");
     private By passwordBy=By.name("password");
    // private By phoneBy=By.name("phone");
     private By phoneBy=By.cssSelector("input[name='phone']");
-    private By maleBy=By.cssSelector("input[value='male']");
+    private By maleBy=By.cssSelector("input[value='male']");//.....By.cssSelector>>...//input[@value='male']
     private By femaleBy=By.cssSelector("input[value='female']");
     private By otherBy=By.cssSelector("input[value='other']");
-    private By dateOfBirthBy=By.name("birthday");
+    private By dateOfBirthBy=By.name("birthday");//..........By.cssSelector...input[name='birthday']......By.xpath...//input[@name='birthday']
     private By departmentBy=By.name("department");
     private By jobTitleBy=By.name("job_title");
-    private By cplusplusBy=By.xpath("//label[text()='C++']/preceding-sibling::input");
-    private By javaBy=By.xpath("//label[text()='Java']/preceding-sibling::input");
+    private By cplusplusBy=By.xpath("//label[text()='C++']/preceding-sibling::input");//.....OR By.cssSelector...#inlineCheckbox1
+    private By javaBy=By.xpath("//label[text()='Java']/preceding-sibling::input");//.......OR By.xpath...//div[@class="form-check form-check-inline"]//following-sibling::input
     private By javaScriptBy=By.xpath("//label[text()='JavaScript']/preceding-sibling::input");
     private By signUpBy=By.id("wooden_spoon");
 
@@ -51,6 +51,7 @@ driver.findElement(phoneBy).sendKeys("234-123-1231");
 
     Select departmentSelect = new Select(driver.findElement(departmentBy));
     departmentSelect.selectByVisibleText("Department of Agriculture");
+
     Select jobTitleSelect = new Select(driver.findElement(jobTitleBy));
     jobTitleSelect.selectByVisibleText("SDET");
     driver.findElement(javaBy).click();
