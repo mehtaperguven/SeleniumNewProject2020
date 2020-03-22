@@ -85,6 +85,8 @@ public void jqueryMenuTest(){
         String actual = earth.getText();
 
         Assert.assertEquals(actual, expected);
+        //if assertion fails it will not be implemented following codes
+        //do not put after Assertion any thing
 
     }
 
