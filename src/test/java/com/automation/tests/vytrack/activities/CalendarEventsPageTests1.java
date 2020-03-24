@@ -28,6 +28,7 @@ public class CalendarEventsPageTests1 {
     private String storeManagerPassword="UserUser123";
     private By activitiesBy = By.xpath("//span[@class='title title-level-1' and contains(text(),'Activities')]");
     private By createCalendarEventBtnBy = By.cssSelector("a[title='Create Calendar event']");
+    ////span[@class='title title-level-2' and contains(text(),'Calendar Events')]
     private By currentUserBy = By.cssSelector("#user-menu > a");
     private By ownerBy = By.className("select2-chosen");
     private By titleBy = By.cssSelector("[name='oro_calendar_event_form[title]']");
@@ -41,7 +42,7 @@ public class CalendarEventsPageTests1 {
         driver.get("https://qa2.vytrack.com/user/login");
         driver.manage().window().maximize();
 
-        actions = new Actions(driver);
+
 
         BrowserUtils.wait(3);
 
@@ -50,6 +51,7 @@ public class CalendarEventsPageTests1 {
 
         BrowserUtils.wait(5);
 
+        actions = new Actions(driver);
         //hover over Activities
         actions.moveToElement(driver.findElement(activitiesBy)).perform();
 
@@ -76,6 +78,7 @@ public class CalendarEventsPageTests1 {
      * Click on Create Calendar Event
      * Default owner name should be current user
      * Default title should be blank
+
      * Default start date should be current date
      * Default start time should be current time
      */
@@ -87,7 +90,9 @@ public class CalendarEventsPageTests1 {
 
         //Default owner name should be current user
         String currentUserName = driver.findElement(currentUserBy).getText().trim();
+        System.out.println("currentUserName>>>>>"+currentUserName);
         String defaultOwnerName = driver.findElement(ownerBy).getText().trim();
+        System.out.println("defaultOwnerName>>>>>"+defaultOwnerName);
         Assert.assertEquals(currentUserName, defaultOwnerName);
 
 //        Default title should be blank
@@ -98,11 +103,12 @@ public class CalendarEventsPageTests1 {
         //Default start date should be current date
         String expectedDate = LocalDate.now().format(DateTimeFormatter.ofPattern("MMM dd, yyyy"));
         String actualDate = driver.findElement(startDateBy).getAttribute("value");
-
+        System.out.println("ACTUAL DATE>>>>>>"+actualDate);
         Assert.assertEquals(actualDate , expectedDate);
 
-        String expectedTime = LocalTime.now(ZoneId.of("GMT-7")).format(DateTimeFormatter.ofPattern("h:m a"));
+        String expectedTime = LocalTime.now(ZoneId.of("GMT-7")).format(DateTimeFormatter.ofPattern("h:mm a"));//mm olunca problem olmadi
         String actualTime = driver.findElement(startTimeBy).getAttribute("value");
+        System.out.println("ACTUAL TIME>>>>>>"+actualTime);
 
         Assert.assertEquals(actualTime, expectedTime);
     }
