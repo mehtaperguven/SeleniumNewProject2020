@@ -27,6 +27,7 @@ public class CalendarEventsPageTests1 {
     private String storeManagerUserName="storemanager85";
     private String storeManagerPassword="UserUser123";
     private By activitiesBy = By.xpath("//span[@class='title title-level-1' and contains(text(),'Activities')]");
+    //By.xpath(//span[@class="title title-level-1"])[5]
     private By createCalendarEventBtnBy = By.cssSelector("a[title='Create Calendar event']");
     ////span[@class='title title-level-2' and contains(text(),'Calendar Events')]
     private By currentUserBy = By.cssSelector("#user-menu > a");
@@ -41,9 +42,6 @@ public class CalendarEventsPageTests1 {
         driver = DriverFactory.createDriver("chrome");
         driver.get("https://qa2.vytrack.com/user/login");
         driver.manage().window().maximize();
-
-
-
         BrowserUtils.wait(3);
 
         driver.findElement(usernameBy).sendKeys(storeManagerUserName);
@@ -107,6 +105,7 @@ public class CalendarEventsPageTests1 {
         Assert.assertEquals(actualDate , expectedDate);
 
         String expectedTime = LocalTime.now(ZoneId.of("GMT-7")).format(DateTimeFormatter.ofPattern("h:mm a"));//mm olunca problem olmadi
+        System.out.println("expectedTime>>>>>"+expectedTime);
         String actualTime = driver.findElement(startTimeBy).getAttribute("value");
         System.out.println("ACTUAL TIME>>>>>>"+actualTime);
 

@@ -23,6 +23,7 @@ driver.findElement(By.id("prependedInput")).sendKeys(username);
 driver.findElement(By.id("prependedInput2")).sendKeys(password, Keys.ENTER);
     BrowserUtils.wait(4);
 driver.findElement(By.xpath("//span[@class='title title-level-1' and contains(text(),'Fleet')]")).click();
+//(//span[@class="title title-level-1"])[2]
 BrowserUtils.wait(3);
 //driver.findElement(By.linkText("Vehicles")).click();
 driver.findElement(By.xpath("//span[@class='title title-level-2'and contains(text(),'Vehicles')]")).click();
