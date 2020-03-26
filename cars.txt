@@ -3,3 +3,6 @@ Hundai
 Honda
 BMW
 Audi
+Kia Optima
+BMW X5
+Honda Civic
