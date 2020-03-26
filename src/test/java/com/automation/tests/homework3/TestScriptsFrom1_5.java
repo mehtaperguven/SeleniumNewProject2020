@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -23,6 +24,21 @@ public class TestScriptsFrom1_5 {
     private By javaBy=By.xpath("(//label[@class='form-check-label'])[2]");
     private By javaScriptBy=By.xpath("(//label[@class='form-check-label'])[3]");
     private By firstNameBy=By.cssSelector("input[placeholder='first name']");
+    private By lastNameBy=By.cssSelector("[placeholder='last name']");
+    private By userNameBy=By.cssSelector("[placeholder='username']");
+    private By emailBy=By.xpath("(//input[@type='text'])[4]");
+    private By passwordBy=By.xpath("//input[@name='password']");
+    private By telBy=By.cssSelector("[type='tel']");
+    private By maleGenderBy=By.xpath("(//input[@name='gender'])[1]");
+    private By femaleGenderBy=By.cssSelector("[value='female']");
+    private By otherBy=By.cssSelector("[value='other']");
+    private By birthDayBy=By.cssSelector("[placeholder='MM/DD/YYYY']");
+    private By depBy=By.xpath("(//select[@class='form-control selectpicker'])[1]");
+    private By jobBy=By.name("job_title");
+    //private By javaBy=By.id("inlineCheckbox2");
+    private By signBy=By.cssSelector("#wooden_spoon");
+    private By textActualBy=By.xpath("//h4//following-sibling::p");
+
     @BeforeMethod
     public void setup(){
         WebDriverManager.chromedriver().version("79").setup();
@@ -65,6 +81,50 @@ public class TestScriptsFrom1_5 {
     public void testScript3(){
 
     driver.findElement(firstNameBy).sendKeys("B");
+    BrowserUtils.wait(3);
+    WebElement textExpected=driver.findElement(By.xpath("(//small[@data-bv-for='firstname'])[2]"));
+        //System.out.println(textExpected.getText());
+    Assert.assertTrue(textExpected.isDisplayed());
+
+    }
+@Test
+    public void testScript4(){
+
+        driver.findElement(lastNameBy).sendKeys("B");
+        BrowserUtils.wait(2);
+        WebElement textDisplayed=driver.findElement(By.xpath("(//small[@class='help-block'])[6]"));
+       // System.out.println(textDisplayed.getText());
+        Assert.assertTrue(textDisplayed.isDisplayed());
+
+
+}
+@Test
+
+public void testScript5(){
+
+driver.findElement(firstNameBy).sendKeys("Mehtap");
+driver.findElement(lastNameBy).sendKeys("ERGUVEN");
+driver.findElement(userNameBy).sendKeys("UserStudent");
+driver.findElement(emailBy).sendKeys("mhtpergvn@gmail.com");
+BrowserUtils.wait(3);
+driver.findElement(passwordBy).sendKeys("12345678");
+BrowserUtils.wait(3);
+driver.findElement(telBy).sendKeys("532-568-9098");
+driver.findElement(femaleGenderBy).click();
+driver.findElement(birthDayBy).sendKeys("03/04/2000");
+BrowserUtils.wait(2);
+    Select selectDepartment = new Select(driver.findElement(depBy));
+    selectDepartment.selectByVisibleText("Department of Engineering");
+BrowserUtils.wait(2);
+    Select selectJobTitle=new Select(driver.findElement(jobBy));
+    selectJobTitle.selectByVisibleText("Developer");
+    driver.findElement(javaBy).click();
+    BrowserUtils.wait(2);
+    driver.findElement(signBy).click();
+    BrowserUtils.wait(2);
+    WebElement text=driver.findElement(textActualBy);
+    System.out.println(text.getText());
+    Assert.assertTrue(text.isDisplayed());
 
 
     }
