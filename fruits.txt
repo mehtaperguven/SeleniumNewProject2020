@@ -2,3 +2,5 @@ apple
 orange
 garlic
 potato
+banana
+spinach
