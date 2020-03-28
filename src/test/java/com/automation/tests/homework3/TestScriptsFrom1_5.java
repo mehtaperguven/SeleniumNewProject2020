@@ -19,7 +19,7 @@ public class TestScriptsFrom1_5 {
     private WebDriver driver;
     private String URL="https://practice-cybertekschool.herokuapp.com/";
     private By registrationBy=By.linkText("Registration Form");
-    private By dateOfBirthBy=By.cssSelector("[name=\"birthday\"]");
+    private By dateOfBirthBy=By.cssSelector("[name=\"birthday\"]");//[placeholder="MM/DD/YYYY"]
     private By cPlusBy=By.xpath("(//label[@class='form-check-label'])[1]");
     private By javaBy=By.xpath("(//label[@class='form-check-label'])[2]");
     private By javaScriptBy=By.xpath("(//label[@class='form-check-label'])[3]");
@@ -52,11 +52,11 @@ public class TestScriptsFrom1_5 {
 
     @Test(description = "this test passed")
     public void testScript1(){
-    driver.findElement(dateOfBirthBy).sendKeys("“wrong_dob");
+    driver.findElement(dateOfBirthBy).sendKeys("wrong_dob");
     BrowserUtils.wait(3);
     WebElement textActual=driver.findElement(By.xpath("//small[@class='help-block' and contains(text(),'The date of birth is not valid')]"));
     Assert.assertTrue(textActual.isDisplayed());
-
+//[data-bv-validator="date"]
     }
 
     @Test(description = "all languages are displayed")
@@ -64,7 +64,9 @@ public class TestScriptsFrom1_5 {
         WebElement cPlusPlus=driver.findElement(cPlusBy);
         WebElement javaJava=driver.findElement(javaBy);
         WebElement javaScript=driver.findElement(javaScriptBy);
+
         List<WebElement> languages= new LinkedList<>();
+
         languages.add(cPlusPlus);
         languages.add(javaJava);
         languages.add(javaScript);
@@ -72,7 +74,7 @@ public class TestScriptsFrom1_5 {
         for (WebElement each: languages) {
 
             Assert.assertTrue(each.isDisplayed());
-            //System.out.println(each.getText());
+            System.out.println(each.getText());
 
         }
     }
@@ -83,6 +85,8 @@ public class TestScriptsFrom1_5 {
     driver.findElement(firstNameBy).sendKeys("B");
     BrowserUtils.wait(3);
     WebElement textExpected=driver.findElement(By.xpath("(//small[@data-bv-for='firstname'])[2]"));
+        //small[starts-with(text(),'first name must be more than 2')]
+        // small[@class='help-block' and contains(text(),'first name must be more than 2')]
         //System.out.println(textExpected.getText());
     Assert.assertTrue(textExpected.isDisplayed());
 
@@ -93,7 +97,7 @@ public class TestScriptsFrom1_5 {
         driver.findElement(lastNameBy).sendKeys("B");
         BrowserUtils.wait(2);
         WebElement textDisplayed=driver.findElement(By.xpath("(//small[@class='help-block'])[6]"));
-       // System.out.println(textDisplayed.getText());
+      // System.out.println(textDisplayed.getText());
         Assert.assertTrue(textDisplayed.isDisplayed());
 
 

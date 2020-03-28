@@ -11,7 +11,7 @@ public class VeryImportantDynamicCode {
 
     @DataProvider(name ="testData")
     public static Object [] testData(){
-        return new Object [] {"404","500","301","200"};
+        return new Object [] {"200","301","404","501"};
     }
     /*
          DataProvider returns data in form of single dimensional Object array (Object [])or 2 dimensional object array (Object [] [])
